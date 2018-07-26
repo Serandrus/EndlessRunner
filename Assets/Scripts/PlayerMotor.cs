@@ -12,18 +12,26 @@ public class PlayerMotor : MonoBehaviour
     private float gravity = 12.0f;
 
     private float animationDuration = 3.0f;
+    private float startTime = 0.0f;
+
+    private bool isDead = false;
 
     // Use this for initialization
     void Start ()
     {
         controller = GetComponent<CharacterController>();
-        
+        startTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Time.time < animationDuration)
+        if (isDead)
+        {
+            return;
+        }
+
+        if (Time.time - startTime < animationDuration)
         {
             controller.Move(Vector3.forward * speed * Time.deltaTime);
             return;
@@ -42,6 +50,15 @@ public class PlayerMotor : MonoBehaviour
 
         // X - Left and Right
         moveVector.x = Input.GetAxisRaw("Horizontal") * speed;
+        if (Input.GetMouseButton(0))
+        {
+            //Are we holding touch on the right side?
+            if (Input.mousePosition.x > Screen.width / 2)
+                moveVector.x = speed;
+            else
+                moveVector.x = -speed;
+        }
+
         // Y - Up and Down
         moveVector.y = verticalVelocity;
 
@@ -50,4 +67,22 @@ public class PlayerMotor : MonoBehaviour
 
         controller.Move(moveVector* Time.deltaTime);
 	}
+
+    public void SetSpeed(float modifier)
+    {
+        speed = 5.0f + modifier;
+    }
+
+    // It is beign called every time our capsule hits something
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Enemy")
+            Death();
+    }
+
+    void Death()
+    {
+        isDead = true;
+        GetComponent<Score>().OnDeath();
+    }
 }

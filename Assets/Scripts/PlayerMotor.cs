@@ -70,7 +70,7 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetSpeed(float modifier)
     {
-        speed = 5.0f + modifier;
+        speed = 10.0f + modifier;
     }
 
     // It is beign called every time our capsule hits something

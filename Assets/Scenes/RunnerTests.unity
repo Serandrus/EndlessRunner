@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,24 +342,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &211084316 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1329998178145062, guid: eb60ce10f9851fc45abc6cd441761fd3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1671394771}
---- !u!114 &211084322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211084316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd1ef61fed8fbb4f8ece6416807d688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 919330457}
-  deathMenu: {fileID: 125384481}
 --- !u!1 &466656316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,10 +1238,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1329998178145062, guid: eb60ce10f9851fc45abc6cd441761fd3, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
+    - target: {fileID: 114315182302066926, guid: eb60ce10f9851fc45abc6cd441761fd3,
+        type: 2}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 919330457}
+    - target: {fileID: 114315182302066926, guid: eb60ce10f9851fc45abc6cd441761fd3,
+        type: 2}
+      propertyPath: deathMenu
+      value: 
+      objectReference: {fileID: 125384481}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb60ce10f9851fc45abc6cd441761fd3, type: 2}
   m_IsPrefabAsset: 0
